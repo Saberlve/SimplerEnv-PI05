@@ -94,6 +94,14 @@ if __name__ == "__main__":
             policy_setup=args.policy_setup,
             action_scale=args.action_scale,
         )
+    elif args.policy_model == "lerobotpi05":
+        assert args.ckpt_path is not None
+        from simpler_env.policies.lerobotpi.pi05 import LerobotPi05Inference
+        model = LerobotPi05Inference(
+            saved_model_path=args.ckpt_path,
+            policy_setup=args.policy_setup,
+            action_scale=args.action_scale,
+        )
     elif args.policy_model == "gr00t":
         assert args.ckpt_path is not None
         from simpler_env.policies.gr00t.gr00t_model import Gr00tInference
